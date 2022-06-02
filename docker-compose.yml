@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  financial.notification:
+    image: ${DOCKER_REGISTRY-}financialnotification
+    build:
+      context: .
+      dockerfile: Financial.Notification/Dockerfile
+
+  rabbitmq:
+    image: masstransit/rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
